@@ -78,13 +78,23 @@
     footer a{ color:var(--muted) }
     .fineprint{opacity:.8}
 
+    /* tiny glitch shimmer on title */
     .title .shimmer{ background: linear-gradient(90deg, #fff, #9dff00, #00ffe0, #fff); -webkit-background-clip:text; background-clip:text; color:transparent;
                      animation: shine 4s linear infinite; background-size: 300% 100%; }
     @keyframes shine{ 0%{background-position:0% 50%} 100%{background-position:100% 50%} }
+  
+    /* dragon watermark */
+    .bg-dragon{ position: fixed; inset: -5% -5% -5% -5%; z-index:0; opacity:.085; pointer-events:none; }
+    .card{ position: relative; z-index: 1 }
   </style>
 </head>
 <body>
-  <main class="card">
+  <!-- Stylized white dragon silhouette watermark -->
+  <svg class="bg-dragon" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="dragonGlow" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
+        <stop offset="1" stop-color="#ffffff" stop-opacity="
     <header>
       <div class="logo">
         <div class="logo-mark">AB</div>
@@ -94,6 +104,7 @@
         </div>
       </div>
       <div class="buttons">
+        <!-- Update these links to your exact handles -->
         <a class="btn secondary" href="https://instagram.com/acidblackdragon" target="_blank" rel="noopener">Instagram</a>
         <a class="btn secondary" href="https://soundcloud.com/acidblackdragon" target="_blank" rel="noopener">SoundCloud</a>
         <a class="btn secondary" href="mailto:booking@acidblackdragon.com?subject=Booking%20Inquiry" target="_blank" rel="noopener">Booking</a>
@@ -114,6 +125,7 @@
       </div>
       <div>
         <div class="qr">
+          <!-- This QR renders automatically. Replace the URL below if you deploy on a different domain/path. -->
           <img alt="QR code to acidblackdragon.com" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Facidblackdragon.com">
         </div>
         <div class="caption">Scan to visit | Add this QR to flyers/tickets</div>
@@ -128,6 +140,7 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    // Optional: paste your lightweight analytics snippet here (e.g., Plausible, Fathom)
   </script>
 </body>
 </html>
