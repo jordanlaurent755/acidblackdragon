@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ABD Myth Terminal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      background: black;
+      color: #d4af37; /* gold instead of hacker green */
+      font-family: monospace;
+      margin: 0;
+      padding: 0;
+    }
+
+    #terminal {
+      max-width: 800px;
+      margin: 100px auto;
+      padding: 30px;
+    }
+
+    #output div {
+      margin-bottom: 6px;
+    }
+
+    .input-line {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    input {
+      background: black;
+      border: none;
+      outline: none;
+      color: #d4af37;
+      font-family: monospace;
+      font-size: 16px;
+      flex: 1;
+    }
+
+    .cursor {
+      animation: blink 1s infinite;
+      margin-left: 4px;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="terminal">
+    <div id="output">
+      <div>> ACID BLACK DRAGON ARCHIVE v0.1</div>
+      <div>> initializing myth layer...</div>
+      <div>> status: dormant</div>
+      <div>> available commands: enter, lore, help</div>
+    </div>
+
+    <div class="input-line">
+      <span>&gt;</span>
+      <input id="commandInput" autofocus>
+      <span class="cursor">█</span>
+    </div>
+  </div>
+
+  <script>
+    const input = document.getElementById("commandInput");
+    const output = document.getElementById("output");
+
+    input.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {
+        const command = input.value.trim().toLowerCase();
+
+        const userLine = document.createElement("div");
+        userLine.textContent = "> " + command;
+        output.appendChild(userLine);
+
+        const response = document.createElement("div");
+
+        if (command === "enter") {
+          response.textContent = "> access granted";
+        } else if (command === "lore") {
+          response.textContent = "> dragon protocol awakening...";
+        } else if (command === "help") {
+          response.textContent = "> try: enter | lore";
+        } else {
+          response.textContent = "> command not recognized";
+        }
+
+        output.appendChild(response);
+        input.value = "";
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+    });
+  </script>
+
+</body>
+</html>
