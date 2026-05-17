@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b0b0f;
+    color: white;
+  }
+  
+  #game {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+  }
+  
+  #screen {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  h1 {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px;
+    font-size: 16px;
+    background: #1c1c2a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+  }
